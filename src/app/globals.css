@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-app: 243 239 231;
+    --bg-surface: 255 251 245;
+    --bg-surface-muted: 248 241 232;
+    --bg-surface-raised: 241 231 217;
+    --text-primary: 31 35 40;
+    --text-secondary: 76 82 90;
+    --text-muted: 108 116 125;
+    --border-subtle: 219 210 196;
+    --border-strong: 188 176 159;
+    --accent: 231 137 52;
+    --accent-soft: 253 229 207;
+    --success: 47 138 88;
+    --warning: 213 142 34;
+    --danger: 198 72 63;
+    --info: 58 124 214;
+  }
+
+  html.dark {
+    --bg-app: 11 15 21;
+    --bg-surface: 20 27 37;
+    --bg-surface-muted: 28 37 48;
+    --bg-surface-raised: 40 51 66;
+    --text-primary: 236 240 245;
+    --text-secondary: 188 197 209;
+    --text-muted: 145 157 171;
+    --border-subtle: 56 68 85;
+    --border-strong: 86 102 123;
+    --accent-soft: 80 46 18;
+  }
+
+  html[data-theme="ocean"] {
+    --accent: 54 149 191;
+    --accent-soft: 212 238 245;
+    --info: 79 121 245;
+  }
+
+  html.dark[data-theme="ocean"] {
+    --accent-soft: 17 59 74;
+  }
+
+  html[data-theme="sunset"] {
+    --accent: 221 91 86;
+    --accent-soft: 250 224 221;
+    --info: 160 93 212;
+  }
+
+  html.dark[data-theme="sunset"] {
+    --accent-soft: 79 31 31;
+  }
+
+  * {
+    @apply border-border-subtle;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-app text-text-primary antialiased;
+    font-family: "IBM Plex Sans", "PingFang SC", "Segoe UI", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Avenir Next", "IBM Plex Sans", "PingFang SC", sans-serif;
+  }
+
+  kbd {
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+  }
+}
