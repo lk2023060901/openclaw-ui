@@ -3,7 +3,7 @@ import type { DashboardDictionary, Locale } from "@/types/dashboard";
 const zhCN: DashboardDictionary = {
   productName: "OpenClaw UI",
   workspaceName: "Control Center",
-  searchPlaceholder: "搜索页面、动作、状态，或按 /、Ctrl+K、Cmd+K",
+  searchPlaceholder: "全站搜索",
   searchHint: "快捷入口",
   headerStatus: "Gateway 已连接，本地工作区运行正常",
   headerMeta: {
@@ -59,56 +59,7 @@ const zhCN: DashboardDictionary = {
     { id: "imessage-vip", name: "VIP 客户回访", status: "异常", tone: "danger", channel: "iMessage", model: "openai · gpt-5", lastActive: "31 分钟前", action: "打开" },
     { id: "slack-finance", name: "财务日报播报", status: "空闲", tone: "info", channel: "Slack", model: "anthropic · claude-sonnet", lastActive: "44 分钟前", action: "打开" }
   ],
-  pairings: [
-    {
-      id: "device-macbook-pro",
-      kind: "device",
-      tone: "warning",
-      label: "设备配对",
-      title: "Safari on macOS 请求访问控制台",
-      description: "新浏览器设备首次连接 Gateway，需要确认后才允许继续使用 Dashboard。",
-      detail: "请求 ID · req_8f3b2d1c · 1 分钟前",
-      primaryAction: "批准设备",
-      secondaryAction: "拒绝"
-    },
-    {
-      id: "device-ipad",
-      kind: "device",
-      tone: "warning",
-      label: "设备配对",
-      title: "iPad Pro 请求操作权限",
-      description: "该设备已通过身份校验，但还没有被加入已配对列表。",
-      detail: "请求 ID · req_c91a4e82 · 6 分钟前",
-      primaryAction: "批准设备",
-      secondaryAction: "拒绝"
-    },
-    {
-      id: "feishu-pairing",
-      kind: "channel",
-      tone: "info",
-      label: "频道配对",
-      title: "飞书 DM 配对码待处理",
-      description: "未知发送者触发了 DM pairing，当前 Web UI 先展示配对信息和建议命令。",
-      detail: "渠道 · Feishu · Open ID ou_29f3... · 刚刚",
-      code: "JPD6D53R",
-      command: "openclaw pairing approve feishu JPD6D53R",
-      primaryAction: "复制命令",
-      secondaryAction: "查看详情"
-    },
-    {
-      id: "slack-pairing",
-      kind: "channel",
-      tone: "info",
-      label: "频道配对",
-      title: "Slack DM 配对码待处理",
-      description: "当前还没有 channel.pair.approve RPC，所以先引导管理员通过现有命令完成。",
-      detail: "渠道 · Slack · User U04A... · 4 分钟前",
-      code: "SLK8M4Q2",
-      command: "openclaw pairing approve slack SLK8M4Q2",
-      primaryAction: "复制命令",
-      secondaryAction: "查看详情"
-    }
-  ],
+  pairings: [],
   attention: [
     { id: "pairing", title: "发现新设备等待配对", description: "来自 Safari on macOS，需要一次性确认后才能持续访问控制台。", action: "审批设备", tone: "warning", time: "刚刚" },
     { id: "telegram", title: "Telegram 登录未完成", description: "渠道已配置但未完成登录，当前无法接收消息。", action: "继续登录", tone: "danger", time: "5 分钟前" },
@@ -134,10 +85,10 @@ const zhCN: DashboardDictionary = {
   ],
   navigation: [
     { id: "dashboard", href: "#", icon: "dashboard", label: "Dashboard" },
-    { id: "workspace", href: "#", icon: "chat", label: "Workspace" },
+    { id: "workspace", href: "#", icon: "chat", label: "Company" },
+    { id: "agents", href: "#", icon: "agents", label: "Agents" },
     { id: "channels", href: "#", icon: "channels", label: "Channels" },
     { id: "automation", href: "#", icon: "automation", label: "Automation" },
-    { id: "agents", href: "#", icon: "agents", label: "Agents" },
     { id: "settings", href: "#", icon: "settings", label: "Settings" }
   ],
   footerLinks: [
@@ -150,7 +101,7 @@ const zhCN: DashboardDictionary = {
 const enUS: DashboardDictionary = {
   productName: "OpenClaw UI",
   workspaceName: "Control Center",
-  searchPlaceholder: "Search pages, actions, status, or press /, Ctrl+K, Cmd+K",
+  searchPlaceholder: "Search across the workspace",
   searchHint: "Quick access",
   headerStatus: "Gateway connected and local workspace is healthy",
   headerMeta: {
@@ -206,56 +157,7 @@ const enUS: DashboardDictionary = {
     { id: "imessage-vip", name: "VIP client follow-up", status: "Error", tone: "danger", channel: "iMessage", model: "openai · gpt-5", lastActive: "31 min ago", action: "Open" },
     { id: "slack-finance", name: "Finance daily brief", status: "Idle", tone: "info", channel: "Slack", model: "anthropic · claude-sonnet", lastActive: "44 min ago", action: "Open" }
   ],
-  pairings: [
-    {
-      id: "device-macbook-pro",
-      kind: "device",
-      tone: "warning",
-      label: "Device pairing",
-      title: "Safari on macOS requested control access",
-      description: "A new browser device is connecting to the Gateway and needs approval before it can keep using the dashboard.",
-      detail: "Request ID · req_8f3b2d1c · 1 min ago",
-      primaryAction: "Approve device",
-      secondaryAction: "Reject"
-    },
-    {
-      id: "device-ipad",
-      kind: "device",
-      tone: "warning",
-      label: "Device pairing",
-      title: "iPad Pro requested operator access",
-      description: "This device passed identity checks but is not yet in the paired devices list.",
-      detail: "Request ID · req_c91a4e82 · 6 min ago",
-      primaryAction: "Approve device",
-      secondaryAction: "Reject"
-    },
-    {
-      id: "feishu-pairing",
-      kind: "channel",
-      tone: "info",
-      label: "Channel pairing",
-      title: "Feishu DM pairing code pending",
-      description: "An unknown sender hit DM pairing. The Web UI currently surfaces the code and suggested command instead of one-click approval.",
-      detail: "Channel · Feishu · Open ID ou_29f3... · Just now",
-      code: "JPD6D53R",
-      command: "openclaw pairing approve feishu JPD6D53R",
-      primaryAction: "Copy command",
-      secondaryAction: "View details"
-    },
-    {
-      id: "slack-pairing",
-      kind: "channel",
-      tone: "info",
-      label: "Channel pairing",
-      title: "Slack DM pairing code pending",
-      description: "There is no channel.pair.approve RPC yet, so the current flow still points admins to the existing command path.",
-      detail: "Channel · Slack · User U04A... · 4 min ago",
-      code: "SLK8M4Q2",
-      command: "openclaw pairing approve slack SLK8M4Q2",
-      primaryAction: "Copy command",
-      secondaryAction: "View details"
-    }
-  ],
+  pairings: [],
   attention: [
     { id: "pairing", title: "New device pairing request detected", description: "Safari on macOS needs one approval before it can keep using the control UI.", action: "Approve device", tone: "warning", time: "Just now" },
     { id: "telegram", title: "Telegram login is incomplete", description: "The channel is configured but cannot receive messages until login finishes.", action: "Continue login", tone: "danger", time: "5 min ago" },
@@ -281,10 +183,10 @@ const enUS: DashboardDictionary = {
   ],
   navigation: [
     { id: "dashboard", href: "#", icon: "dashboard", label: "Dashboard" },
-    { id: "workspace", href: "#", icon: "chat", label: "Workspace" },
+    { id: "workspace", href: "#", icon: "chat", label: "Company" },
+    { id: "agents", href: "#", icon: "agents", label: "Agents" },
     { id: "channels", href: "#", icon: "channels", label: "Channels" },
     { id: "automation", href: "#", icon: "automation", label: "Automation" },
-    { id: "agents", href: "#", icon: "agents", label: "Agents" },
     { id: "settings", href: "#", icon: "settings", label: "Settings" }
   ],
   footerLinks: [

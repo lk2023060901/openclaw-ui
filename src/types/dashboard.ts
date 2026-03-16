@@ -61,18 +61,28 @@ export type SummaryMetric = {
   detail: string;
 };
 
+export type PairingActionKind = "approve" | "reject" | "copy_command" | "details";
+
+export type PairingAction = {
+  kind: PairingActionKind;
+  label: string;
+  disabled?: boolean;
+};
+
 export type PairingItem = {
   id: string;
-  kind: "device" | "channel";
+  kind: "device" | "node" | "channel_dm";
   tone: HighlightTone;
   label: string;
+  status: string;
+  statusTone: HighlightTone;
   title: string;
   description: string;
   detail: string;
   code?: string;
   command?: string;
-  primaryAction: string;
-  secondaryAction?: string;
+  primaryAction?: PairingAction;
+  secondaryAction?: PairingAction;
 };
 
 export type ActiveSessionCard = {
@@ -83,6 +93,18 @@ export type ActiveSessionCard = {
   channel: string;
   model: string;
   lastActive: string;
+  action: string;
+};
+
+export type AgentCard = {
+  id: string;
+  name: string;
+  emoji: string;
+  activeSessionCount: string;
+  model: string;
+  lastActive: string;
+  primarySession: string;
+  channel: string;
   action: string;
 };
 

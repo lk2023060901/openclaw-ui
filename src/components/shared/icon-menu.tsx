@@ -47,7 +47,7 @@ export function IconMenu({
   }, []);
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className="relative z-[70]">
       <button
         type="button"
         aria-haspopup="menu"
@@ -68,7 +68,7 @@ export function IconMenu({
           id={panelId}
           role="menu"
           className={cn(
-            "absolute top-[calc(100%+0.75rem)] z-50 min-w-[14rem] rounded-[1.5rem] border border-border-subtle bg-surface/95 p-3 shadow-halo backdrop-blur-xl",
+            "absolute top-[calc(100%+0.75rem)] z-[80] min-w-[14rem] rounded-[1.5rem] border border-border-subtle bg-surface/95 p-3 shadow-halo backdrop-blur-xl",
             align === "right" ? "right-0" : "left-0"
           )}
         >

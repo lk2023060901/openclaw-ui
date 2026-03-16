@@ -1,15 +1,18 @@
 import type { ReactNode } from "react";
 
-import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Sidebar } from "@/components/layout/sidebar";
 import type { DashboardDictionary } from "@/types/dashboard";
 
 export function AppShell({
   dictionary,
+  currentNav,
+  onNavigate,
   children
 }: {
   dictionary: DashboardDictionary;
+  currentNav: string;
+  onNavigate: (navId: string) => void;
   children: ReactNode;
 }) {
   return (
@@ -22,12 +25,11 @@ export function AppShell({
 
         <div className="flex w-full flex-1 px-4 py-6 lg:px-6">
           <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-[minmax(220px,16vw)_minmax(0,1fr)]">
-          <Sidebar dictionary={dictionary} />
+          <Sidebar dictionary={dictionary} currentNav={currentNav} onNavigate={onNavigate} />
           <main className="min-w-0 flex-1">{children}</main>
           </div>
         </div>
 
-        <Footer dictionary={dictionary} />
       </div>
     </div>
   );

@@ -12,13 +12,12 @@ export function LocaleSwitcher() {
       label="Switch language"
       icon={
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4">
-          <path d="M4 5h8" />
-          <path d="M8 3v4" />
-          <path d="M6 13h12" />
-          <path d="M9 5a12 12 0 0 0 6 8" />
-          <path d="M12 13a12 12 0 0 0 6-8" />
-          <path d="M16 16l4 5" />
-          <path d="M14 21l4-10 4 10" />
+          <circle cx="12" cy="12" r="9" />
+          <path d="M3 12h18" />
+          <path d="M12 3a14 14 0 0 1 0 18" />
+          <path d="M12 3a14 14 0 0 0 0 18" />
+          <path d="M6 7.5c1.7 1 3.8 1.5 6 1.5s4.3-.5 6-1.5" />
+          <path d="M6 16.5c1.7-1 3.8-1.5 6-1.5s4.3.5 6 1.5" />
         </svg>
       }
     >
