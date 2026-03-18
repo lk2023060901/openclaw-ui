@@ -100,6 +100,7 @@ export type AgentCard = {
   id: string;
   name: string;
   emoji: string;
+  isDefault: boolean;
   activeSessionCount: string;
   model: string;
   lastActive: string;

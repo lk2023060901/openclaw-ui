@@ -89,6 +89,7 @@ const zhCN: DashboardDictionary = {
     { id: "agents", href: "#", icon: "agents", label: "Agents" },
     { id: "channels", href: "#", icon: "channels", label: "Channels" },
     { id: "automation", href: "#", icon: "automation", label: "Automation" },
+    { id: "logs", href: "#", icon: "logs", label: "Logs" },
     { id: "settings", href: "#", icon: "settings", label: "Settings" }
   ],
   footerLinks: [
@@ -187,6 +188,7 @@ const enUS: DashboardDictionary = {
     { id: "agents", href: "#", icon: "agents", label: "Agents" },
     { id: "channels", href: "#", icon: "channels", label: "Channels" },
     { id: "automation", href: "#", icon: "automation", label: "Automation" },
+    { id: "logs", href: "#", icon: "logs", label: "Logs" },
     { id: "settings", href: "#", icon: "settings", label: "Settings" }
   ],
   footerLinks: [

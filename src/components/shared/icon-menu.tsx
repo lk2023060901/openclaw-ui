@@ -56,7 +56,7 @@ export function IconMenu({
         aria-label={label}
         onClick={() => setOpen((value) => !value)}
         className={cn(
-          "flex h-10 w-10 items-center justify-center rounded-full border border-border-subtle bg-surface text-text-secondary transition",
+          "flex h-12 w-12 items-center justify-center rounded-full border border-border-subtle bg-surface text-text-secondary transition",
           open ? "border-accent/40 text-text-primary shadow-card" : "hover:border-border-strong hover:text-text-primary"
         )}
       >

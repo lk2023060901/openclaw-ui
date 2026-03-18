@@ -6,7 +6,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PID_FILE="$SCRIPT_DIR/.openclaw-ui.pid"
 PLIST_FILE="$SCRIPT_DIR/.openclaw-ui.launchagent.plist"
 LAUNCH_LABEL="ai.openclaw.ui"
-PORT="${PORT:-3000}"
+PORT="${PORT:-13000}"
 USER_ID="$(id -u)"
 
 stop_pid() {

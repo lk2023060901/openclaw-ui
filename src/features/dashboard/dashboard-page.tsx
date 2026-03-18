@@ -6,6 +6,7 @@ import { AppShell } from "@/components/layout/app-shell";
 import { useI18n } from "@/lib/i18n/provider";
 import { ActiveSessionsPanel } from "@/features/dashboard/components/active-sessions-panel";
 import { AgentsPanel } from "@/features/dashboard/components/agents-panel";
+import { LogsPanel } from "@/features/dashboard/components/logs-panel";
 import { PendingPairingsPanel } from "@/features/dashboard/components/pending-pairings-panel";
 import {
   fetchAgents,
@@ -138,13 +139,14 @@ function shortenSessionKey(value: string) {
   return `${value.slice(0, 24)}...`;
 }
 
-function toAgentCard(agent: AgentApiItem, locale: string): AgentCard {
+function toAgentCard(agent: AgentApiItem, defaultId: string, locale: string): AgentCard {
   const primarySession = agent.primary_session;
 
   return {
     id: agent.id,
     name: agent.identity_name || agent.name || agent.id,
     emoji: agent.identity_emoji || "AI",
+    isDefault: agent.id === defaultId,
     activeSessionCount:
       locale === "zh-CN"
         ? `${agent.active_session_count} 个活跃会话`
@@ -155,7 +157,7 @@ function toAgentCard(agent: AgentApiItem, locale: string): AgentCard {
         : "-",
     lastActive: formatRelativeTime(agent.last_active_at, locale),
     primarySession: primarySession ? shortenSessionKey(primarySession.session_key) : "-",
-    channel: primarySession ? mapChannelLabel(primarySession.channel, locale) : "-",
+    channel: primarySession?.channel ? mapChannelLabel(primarySession.channel, locale) : "-",
     action: locale === "zh-CN" ? "查看" : "View"
   };
 }
@@ -357,7 +359,7 @@ export function DashboardPage() {
 
         if (!disposed) {
           setAgents(
-            agentsResponse.items.map((item) => toAgentCard(item, locale))
+            agentsResponse.items.map((item) => toAgentCard(item, agentsResponse.default_id, locale))
           );
           setAgentsLoading(false);
           console.log("[agents] response", agentsResponse);
@@ -522,6 +524,8 @@ export function DashboardPage() {
             error={agentsError}
             emptyText={locale === "zh-CN" ? "暂无 Agent" : "No agents"}
           />
+        ) : currentNav === "logs" ? (
+          <LogsPanel />
         ) : currentNav === "dashboard" ? (
           <>
             <AgentsPanel

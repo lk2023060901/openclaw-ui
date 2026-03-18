@@ -28,22 +28,27 @@ export type AgentsResponse = {
   checked_at: string;
 };
 
-export type AgentSummarySession = {
-  session_key: string;
-  channel: string;
-  model_provider: string;
-  model: string;
-  updated_at: string;
-};
-
-export type AgentSummaryResponse = {
-  agent_id: string;
-  active_session_count: number;
-  latest_model_provider: string;
-  latest_model: string;
-  last_active_at: string;
-  sessions: AgentSummarySession[];
-  checked_at: string;
+export type AgentOverviewResponse = {
+  title: string;
+  subtitle: string;
+  workspace: string;
+  primaryModel: string;
+  skillsFilter: {
+    mode: string;
+    count: number;
+    label: string;
+  };
+  modelSelection: {
+    primary: string;
+    isDefault: boolean;
+    defaultPrimary: string;
+    fallbacks: string[];
+  };
+  configState: {
+    dirty: boolean;
+    loading: boolean;
+    saving: boolean;
+  };
 };
 
 export async function fetchAgents(signal?: AbortSignal): Promise<AgentsResponse> {
@@ -61,4 +66,21 @@ export async function fetchAgents(signal?: AbortSignal): Promise<AgentsResponse>
   }
 
   return (await response.json()) as AgentsResponse;
+}
+
+export async function fetchAgentOverview(agentId: string, signal?: AbortSignal): Promise<AgentOverviewResponse> {
+  const response = await fetch(`${AGENTS_API_PATH}/${encodeURIComponent(agentId)}/overview`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json"
+    },
+    cache: "no-store",
+    signal
+  });
+
+  if (!response.ok) {
+    throw new Error(`agent overview request failed: ${response.status}`);
+  }
+
+  return (await response.json()) as AgentOverviewResponse;
 }

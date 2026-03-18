@@ -53,7 +53,7 @@ export function ThemeSwitcher() {
   ];
 
   return (
-    <div className="flex items-center gap-2 rounded-full border border-border-subtle bg-surface/80 px-2 py-1">
+    <div className="flex h-12 items-center gap-2 rounded-full border border-border-subtle bg-surface/80 px-2">
       {items.map((item) => (
         <button
           key={item.value}

@@ -109,7 +109,7 @@ export function Header({ dictionary }: { dictionary: DashboardDictionary }) {
         <div className="flex flex-wrap items-center gap-3 xl:ml-auto xl:justify-end">
           <SearchCommand placeholder={dictionary.searchPlaceholder} />
 
-          <div className="rounded-full border border-border-subtle bg-surface px-4 py-2 text-sm text-text-secondary">
+          <div className="inline-flex h-12 items-center rounded-full border border-border-subtle bg-surface px-4 text-sm text-text-secondary">
             <span className="font-semibold text-text-primary">{currentVersion}</span>
             {latestVersion ? (
               <span className="ml-3 rounded-full bg-accent/15 px-2.5 py-1 text-xs font-semibold text-accent">
@@ -118,7 +118,7 @@ export function Header({ dictionary }: { dictionary: DashboardDictionary }) {
             ) : null}
           </div>
 
-          <div className="flex items-center gap-2 rounded-full border border-border-subtle bg-surface px-4 py-2 text-sm text-text-secondary">
+          <div className="inline-flex h-12 items-center gap-2 rounded-full border border-border-subtle bg-surface px-4 text-sm text-text-secondary">
             <span className={`h-2.5 w-2.5 rounded-full ${gatewayToneClass}`} />
             <span className="font-semibold text-text-primary">
               {connected
@@ -127,8 +127,11 @@ export function Header({ dictionary }: { dictionary: DashboardDictionary }) {
             </span>
           </div>
 
-          <div className="inline-flex shrink-0 items-center rounded-full border border-border-subtle bg-surface px-4 py-2 text-sm text-text-secondary">
-            <span className="whitespace-nowrap font-semibold tabular-nums text-text-primary">{timestamp}</span>
+          <div className="inline-flex h-12 shrink-0 items-center rounded-full border border-border-subtle bg-surface px-4 text-sm text-text-secondary">
+            <span className="relative inline-block whitespace-nowrap font-semibold tabular-nums text-text-primary">
+              <span className="invisible">2026/03/16 00:00:00</span>
+              <span className="absolute inset-0">{timestamp}</span>
+            </span>
           </div>
 
           <LocaleSwitcher />
